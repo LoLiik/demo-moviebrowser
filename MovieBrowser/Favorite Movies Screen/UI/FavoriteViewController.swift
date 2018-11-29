@@ -22,7 +22,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewWillAppear(animated)
         let realm = try! Realm()
         movies = Array(realm.objects(Movie.self).filter("favorite = true"))
-        print(movies)
+         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFavorites(_:)), name: NSNotification.Name(rawValue: "updateFavorites"), object: nil)
     }
 
     // MARK: - UITableViewDataSource
@@ -45,6 +45,26 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         return cell
+    }
 
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Favorite"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                if let destinationVC = segue.destination as? MovieViewController{
+                    let movie = movies[indexPath.row]
+                    destinationVC.movie = movie
+                    destinationVC.title = movie.title
+                }
+            }
+        }
+    }
+
+    @objc func updateFavorites(_ notification: NSNotification?){
+        let realm = try! Realm()
+        movies = Array(realm.objects(Movie.self).filter("favorite = true"))
+        tableView.reloadData()
+    }
 }
-}
+

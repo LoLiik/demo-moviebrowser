@@ -70,11 +70,12 @@ class MovieViewController: UITableViewController {
                 try! realm.write{
                     currentMovie.favorite.toggle()
                     realm.add(currentMovie, update: true)
+                    self.updateFavoriteButton()
                 }
             }
         }
-        updateFavoriteButton()
         NotificationCenter.default.post(name: NSNotification.Name("updateCellMovie"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("updateFavorites"), object: nil)
     }
 
 
