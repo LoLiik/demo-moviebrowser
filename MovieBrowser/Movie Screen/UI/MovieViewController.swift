@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MovieViewController: UITableViewController {
 
@@ -19,7 +20,6 @@ class MovieViewController: UITableViewController {
     @IBOutlet weak var ratingLabel: UILabel!
 
     var movie: Movie? = nil
-    var favorite: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,8 @@ class MovieViewController: UITableViewController {
     }
 
     private func updateFavoriteButton(){
-        if favorite!{
+        guard let currentMovie = self.movie else { return }
+        if currentMovie.favorite{
             addFavoriteButton.backgroundColor = .red
             addFavoriteButton.setTitle("💨Удалить из избранного💨", for: .normal)
         } else {
@@ -63,9 +64,18 @@ class MovieViewController: UITableViewController {
     }
 
     @IBAction func addFavorite(_ sender: Any) {
-        guard favorite != nil else { return }
-        favorite?.toggle()
-        updateFavoriteButton()
+        if let currentMovie = self.movie{
+            DispatchQueue.main.async{
+                let realm = try! Realm()
+                try! realm.write{
+                    currentMovie.favorite.toggle()
+                    realm.add(currentMovie, update: true)
+                    self.updateFavoriteButton()
+                }
+            }
+        }
+        NotificationCenter.default.post(name: NSNotification.Name("updateCellMovie"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("updateFavorites"), object: nil)
     }
 
 

@@ -18,12 +18,11 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var favoriteImageView: UIImageView!
 
     var movie: Movie? { didSet { updateUI() } }
-    var favorite: Bool? { didSet { self.displayFavoriteImage() }}
 
     // Displays Image if current movie is one of favorite movies
     func displayFavoriteImage() {
-        guard favorite != nil else {return}
-        if favorite!{
+        guard let currentMovie = movie else {return}
+        if currentMovie.favorite{
             favoriteImageVIewWidth.constant = 50
         } else {
             favoriteImageVIewWidth.constant = 0
@@ -31,12 +30,8 @@ class SearchCell: UITableViewCell {
     }
 
     private func updateUI() {
-        if favorite == nil{
-            favorite = false
-        }
-
         if let newMovie = movie{
-
+            self.displayFavoriteImage()
             title?.text = movie?.title
             if newMovie.title == newMovie.original_title{
                 originalTitle.isHidden = true
