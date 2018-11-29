@@ -14,8 +14,6 @@ private let API_KEY = "0850a2ca8b5adfb48d45ad7084527caf"
 fileprivate let SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&language=ru-RU&include_adult=false"
 public let IMAGE_URL = "http://image.tmdb.org/t/p/"
 
-fileprivate let realm = try! Realm()
-
 class SearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
     @IBOutlet weak var movieSearchTextField: UITextField!
@@ -27,8 +25,6 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     var totalPages: Int = 0
     var currentPage: Int = 0
 
-    // TODO: - Move favorites to DB
-    var favorites: [Int] = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,8 +77,8 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
 
         // MARK: - Alamofire request for movies
         let queue = DispatchQueue(label: "tmdb.test.api", qos: .background, attributes: .concurrent)
-        var some = Alamofire.request(urlString,
-                                     method: .get)
+        Alamofire.request(urlString,
+                          method: .get)
             .validate()
             .responseJSON(queue: queue){ response in
                 guard response.result.isSuccess else {
@@ -107,6 +103,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                     self.totalPages = parsedMovies.totalPages
                     self.currentPage = parsedMovies.currentPage
                     DispatchQueue.main.async {
+                        let realm = try! Realm()
                         for movie in parsedMovies.movies{
                             try! realm.write {
                                 realm.add(movie, update: true)
@@ -125,24 +122,26 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     //MARK: - Adding swipe action for Favorites
 
-
     func contextualAddToFavoriteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-        let movieId = self.movies[indexPath.row].id
-        var movieIsFavorite: Bool { return self.favorites.contains(movieId) }
+        let movie = self.movies[indexPath.row]
+        let movieIsFavorite = movie.favorite
         let actionTitle = movieIsFavorite ? "💔" : "❤️"
         let action = UIContextualAction(style: .normal,
                                         title: actionTitle) {
                                             (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
                                             let cell = self.tableView.cellForRow(at: indexPath) as? SearchCell
-                                            if movieIsFavorite{
-                                                if let index = self.favorites.index(of: movieId) { self.favorites.remove(at: index) }
-                                                cell?.favorite = false
-                                            } else {
-                                                self.favorites.append(self.movies[indexPath.row].id)
-                                                cell?.favorite = true
+                                            DispatchQueue.main.async {
+                                                let realm = try! Realm()
+                                                try! realm.write {
+                                                    movie.favorite = !movie.favorite
+                                                    realm.add(movie, update: true)
+                                                    cell?.movie = movie
+                                                }
                                             }
                                             //MARK: -  Update favorite image constraint
-                                            cell?.displayFavoriteImage()
+//                                            cell?.movie = movie
+//                                            cell?.displayFavoriteImage()
+//                                            self.tableView.reloadRows(at: [indexPath], with: .none)
                                             completionHandler(true)
         }
         action.backgroundColor = movieIsFavorite ? UIColor.gray : UIColor.orange
@@ -152,7 +151,6 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - UITextFieldDelegate
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("HeyHo")
         if textField == movieSearchTextField, let searchText = movieSearchTextField.text{
             if !searchText.isEmpty && searchQuery != searchText{
                 movies.removeAll()
@@ -189,16 +187,12 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                     let movie = movies[indexPath.row]
                     destinationVC.movie = movie
                     destinationVC.title = movie.title
-                    destinationVC.favorite = favorites.contains(movie.id)
                 }
             }
         }
     }
 
-
-
-
-// MARK: - UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -215,7 +209,6 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                 let movie = movies[indexPath.row]
                 movieCell.posterImageView.image = UIImage(named: "defaultPostImage")
                 movieCell.movie = movie
-                movieCell.favorite = favorites.contains(movie.id)
             }
         }
 
@@ -230,6 +223,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         let favoriteAction = self.contextualAddToFavoriteAction(forRowAtIndexPath: indexPath)
         let swipeConfig = UISwipeActionsConfiguration(actions: [favoriteAction])
         return swipeConfig
+
     }
 
 }
