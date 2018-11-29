@@ -20,17 +20,20 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
 
     private let refreshControl = UIRefreshControl()
+
+    // MARK: - Model
     var searchQuery: String = ""
     var movies: [Movie] = [Movie]()
     var totalPages: Int = 0
     var currentPage: Int = 0
-
+    var rowBeforeSegue = -1 // Used for cell update after chenges on MovieViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableviewAppearence()
         setupRefresh()
         hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateCellMovie(_:)), name: NSNotification.Name(rawValue: "updateCellMovie"), object: nil)
     }
 
     private func setupTableviewAppearence(){
@@ -96,7 +99,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
 
                 do {
                     // MARK: - Decode retrived data with JSONDecoder and assing type of [Providers] object
-                    let parsedMovies = try JSONDecoder().decode(MovieResponse.self, from: responseData)
+                    let parsedMovies = try JSONDecoder().decode(SearchResponse.self, from: responseData)
                     //MARK: - Get back to the main queue
                     self.movies.append(contentsOf: parsedMovies.movies)
                     
@@ -135,17 +138,23 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                                                 try! realm.write {
                                                     movie.favorite = !movie.favorite
                                                     realm.add(movie, update: true)
+                                                    //MARK: -  Update favorite image constraint
                                                     cell?.movie = movie
                                                 }
                                             }
-                                            //MARK: -  Update favorite image constraint
-//                                            cell?.movie = movie
-//                                            cell?.displayFavoriteImage()
-//                                            self.tableView.reloadRows(at: [indexPath], with: .none)
                                             completionHandler(true)
         }
         action.backgroundColor = movieIsFavorite ? UIColor.gray : UIColor.orange
         return action
+    }
+
+    @objc func updateCellMovie(_ notification: NSNotification?){
+        if rowBeforeSegue >= 0{
+            if let cell = tableView.cellForRow(at: IndexPath(row: rowBeforeSegue, section: 0)) as? SearchCell{
+                cell.movie = movies[rowBeforeSegue]
+            }
+        }
+
     }
 
     // MARK: - UITextFieldDelegate
@@ -181,8 +190,9 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowMovie"{
+        if segue.identifier == "Show Movie"{
             if let indexPath = tableView.indexPathForSelectedRow{
+                rowBeforeSegue = indexPath.row
                 if let destinationVC = segue.destination as? MovieViewController{
                     let movie = movies[indexPath.row]
                     destinationVC.movie = movie
@@ -203,7 +213,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Search Cell", for: indexPath)
         if let movieCell = cell as? SearchCell{
             if movies.count >= indexPath.row{
                 let movie = movies[indexPath.row]

@@ -1,5 +1,5 @@
 //
-//  MovieResponse.swift
+//  SearchResponse.swift
 //  MovieBrowser
 //
 //  Created by Евгений on 28.11.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieResponse: Codable {
+struct SearchResponse: Codable {
     let currentPage: Int
     let totalPages: Int
     let movies: [Movie]

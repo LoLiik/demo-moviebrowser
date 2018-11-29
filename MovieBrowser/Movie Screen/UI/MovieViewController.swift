@@ -74,6 +74,7 @@ class MovieViewController: UITableViewController {
             }
         }
         updateFavoriteButton()
+        NotificationCenter.default.post(name: NSNotification.Name("updateCellMovie"), object: nil)
     }
 
 
