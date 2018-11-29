@@ -18,7 +18,7 @@
 		FD4AE58B21AE901000591067 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4AE58A21AE901000591067 /* Movie.swift */; };
 		FD4AE58D21AE915F00591067 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4AE58C21AE915F00591067 /* MovieViewController.swift */; };
 		FDAF0CD921AEA6E500612737 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CD821AEA6E500612737 /* SearchViewController.swift */; };
-		FDAF0CDB21AEAB1300612737 /* MovieSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CDA21AEAB1300612737 /* MovieSearchTableViewCell.swift */; };
+		FDAF0CDB21AEAB1300612737 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CDA21AEAB1300612737 /* SearchCell.swift */; };
 		FDAF0CE021AEAF8300612737 /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CDF21AEAF8300612737 /* PostImageView.swift */; };
 		FDAF0CE221AEAF8700612737 /* UIColor Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */; };
 		FDAF0CE421AEAF8A00612737 /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */; };
@@ -42,7 +42,7 @@
 		FD4AE58A21AE901000591067 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FD4AE58C21AE915F00591067 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		FDAF0CD821AEA6E500612737 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		FDAF0CDA21AEAB1300612737 /* MovieSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchTableViewCell.swift; sourceTree = "<group>"; };
+		FDAF0CDA21AEAB1300612737 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		FDAF0CDF21AEAF8300612737 /* PostImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
 		FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor Extension.swift"; sourceTree = "<group>"; };
 		FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController Extension.swift"; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				FDAF0CD821AEA6E500612737 /* SearchViewController.swift */,
-				FDAF0CDA21AEAB1300612737 /* MovieSearchTableViewCell.swift */,
+				FDAF0CDA21AEAB1300612737 /* SearchCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 				FDAF0CE621AEC45500612737 /* MovieResponse.swift in Sources */,
 				FD1E6DDA21AE861500D43E29 /* ViewController.swift in Sources */,
 				FDAF0CE021AEAF8300612737 /* PostImageView.swift in Sources */,
-				FDAF0CDB21AEAB1300612737 /* MovieSearchTableViewCell.swift in Sources */,
+				FDAF0CDB21AEAB1300612737 /* SearchCell.swift in Sources */,
 				FDAF0CE221AEAF8700612737 /* UIColor Extension.swift in Sources */,
 				FD1E6DD821AE861500D43E29 /* AppDelegate.swift in Sources */,
 				FD4AE58B21AE901000591067 /* Movie.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  MovieSearchTableViewCell.swift
+//  SearchCell.swift
 //  MovieBrowser
 //
 //  Created by Евгений on 28.11.2018.
@@ -8,17 +8,35 @@
 
 import UIKit
 
-class MovieSearchTableViewCell: UITableViewCell {
+class SearchCell: UITableViewCell {
 
+    @IBOutlet weak var favoriteImageVIewWidth: NSLayoutConstraint!
     @IBOutlet weak var posterImageView: PostImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var originalTitle: UILabel!
     @IBOutlet weak var releaseYear: UILabel!
+    @IBOutlet weak var favoriteImageView: UIImageView!
 
     var movie: Movie? { didSet { updateUI() } }
+    var favorite: Bool? { didSet { self.displayFavoriteImage() }}
+
+    // Displays Image if current movie is one of favorite movies
+    func displayFavoriteImage() {
+        guard favorite != nil else {return}
+        if favorite!{
+            favoriteImageVIewWidth.constant = 50
+        } else {
+            favoriteImageVIewWidth.constant = 0
+        }
+    }
 
     private func updateUI() {
+        if favorite == nil{
+            favorite = false
+        }
+
         if let newMovie = movie{
+
             title?.text = movie?.title
             if newMovie.title == newMovie.original_title{
                 originalTitle.isHidden = true
@@ -30,7 +48,7 @@ class MovieSearchTableViewCell: UITableViewCell {
             releaseYear.text = self.getYear(from: newMovie.release_date)
 
             if let posterImageURL = newMovie.poster_path {
-                posterImageView.loadImageUsingUrlString(urlString: IMAGE_URL + posterImageURL)
+                posterImageView.loadImageUsingUrlString(urlString: IMAGE_URL + "/w154" + posterImageURL)
             }
         } else {
             return
@@ -47,13 +65,14 @@ class MovieSearchTableViewCell: UITableViewCell {
         return ""
     }
 }
-        extension DateFormatter{
-            static let yearFormatter: DateFormatter = {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                formatter.calendar = Calendar(identifier: .iso8601)
-                formatter.timeZone = TimeZone.current
-                formatter.locale = Locale(identifier: "ru_RU")
-                return formatter
-            }()
+
+extension DateFormatter{
+    static let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale(identifier: "ru_RU")
+        return formatter
+    }()
 }
