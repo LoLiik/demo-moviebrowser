@@ -8,10 +8,13 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 private let API_KEY = "0850a2ca8b5adfb48d45ad7084527caf"
 fileprivate let SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&language=ru-RU&include_adult=false"
 public let IMAGE_URL = "http://image.tmdb.org/t/p/"
+
+fileprivate let realm = try! Realm()
 
 class SearchTableViewController: UITableViewController, UITextFieldDelegate{
 
@@ -67,7 +70,7 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
         }
 
         // MARK: - Query construction
-        let query = URLQueryItem(name: "query", value: searchQuery)
+        let query = URLQueryItem(name: "query", value: searchQuery.trimmingCharacters(in: .whitespacesAndNewlines))
         url?.queryItems?.append(query)
         url?.queryItems?.append(page)
         guard let urlString = url?.string else {
@@ -96,12 +99,17 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
                 do {
                     // MARK: - Decode retrived data with JSONDecoder and assing type of [Providers] object
                     let parsedMovies = try JSONDecoder().decode(MovieResponse.self, from: responseData)
-
                     //MARK: - Get back to the main queue
                     self.movies.append(contentsOf: parsedMovies.movies)
+                    
                     self.totalPages = parsedMovies.totalPages
                     self.currentPage = parsedMovies.currentPage
                     DispatchQueue.main.async {
+                        for movie in parsedMovies.movies{
+                            try! realm.write {
+                                realm.add(movie, update: true)
+                            }
+                        }
                         completion()
                         self.refreshControl?.endRefreshing()
                     }
@@ -177,6 +185,8 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
             if !searchText.isEmpty && searchQuery != searchText{
                 movies.removeAll()
                 self.tableView.reloadData()
+                totalPages = 0
+                currentPage = 0
                 searchQuery = searchText
                 movieSearchTextField.resignFirstResponder()
                 self.title = "Результаты для \(searchQuery)"

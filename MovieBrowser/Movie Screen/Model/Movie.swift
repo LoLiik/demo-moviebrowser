@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Movie: Codable{
-    let id: Int
-    let vote_count: Int
-    let vote_average: Double
-    let title: String
-    let original_title: String
-    let poster_path: String?
-    let backdrop_path: String?
-    let overview: String
-    let release_date: String
+class Movie: Object, Codable{
+    @objc dynamic var id: Int
+    @objc dynamic var vote_count: Int
+    @objc dynamic var vote_average: Double
+    @objc dynamic var title: String
+    @objc dynamic var original_title: String
+    @objc dynamic var poster_path: String?
+    @objc dynamic var backdrop_path: String?
+    @objc dynamic var overview: String
+    @objc dynamic var release_date: String
+
+    override static func primaryKey() -> String{
+        return "id"
+    }
 }

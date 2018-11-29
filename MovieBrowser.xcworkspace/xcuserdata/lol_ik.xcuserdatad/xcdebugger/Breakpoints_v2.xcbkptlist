@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565188736.1521651"
+            timestampString = "565194227.183813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "loadMovies(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565188736.152599"
+            timestampString = "565194227.185392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "loadMovies(_:)"
             landmarkType = "7">
             <Locations>
@@ -119,8 +119,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "updateUI()"
-            landmarkType = "7">
+            landmarkName = "yearFormatter"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -130,11 +130,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565188736.152743"
+            timestampString = "565194227.18607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Actions>
@@ -182,7 +182,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "updateUI()"
+            landmarkName = "getYear(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -198,7 +198,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "updateUI()"
+            landmarkName = "getYear(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -225,11 +225,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565188736.152932"
+            timestampString = "565194227.187135"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "contextualAddToFavoriteAction(forRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -241,11 +241,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565188736.153084"
+            timestampString = "565194227.188091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "contextualAddToFavoriteAction(forRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -257,7 +257,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Movie Screen/UI/MovieViewController.swift"
-            timestampString = "565188736.1531889"
+            timestampString = "565194227.188652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -273,12 +273,117 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Movie Screen/UI/MovieViewController.swift"
-            timestampString = "565188736.1548671"
+            timestampString = "565194227.189308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
             landmarkName = "addFavorite(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
+            timestampString = "565194227.190172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "loadMovies(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
+            timestampString = "565194227.190739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "loadMovies(_:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "inside"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
+            timestampString = "565194227.1912251"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "textFieldShouldReturn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieBrowser.SearchTableViewController.textFieldShouldReturn(__C.UITextField) -&gt; Swift.Bool"
+                  moduleName = "MovieBrowser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lol_ik/Develop/Projects/MovieBrowser/MovieBrowser/Search%20Srceen/UI/SearchViewController.swift"
+                  timestampString = "565194227.375958"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "2340">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in MovieBrowser.SearchTableViewController.textFieldShouldReturn(__C.UITextField) -&gt; Swift.Bool"
+                  moduleName = "MovieBrowser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lol_ik/Develop/Projects/MovieBrowser/MovieBrowser/Search%20Srceen/UI/SearchViewController.swift"
+                  timestampString = "565194227.378659"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
+            timestampString = "565194227.191709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "loadMovies(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
