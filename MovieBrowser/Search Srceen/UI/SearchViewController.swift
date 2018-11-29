@@ -11,29 +11,53 @@ import Alamofire
 
 private let API_KEY = "0850a2ca8b5adfb48d45ad7084527caf"
 fileprivate let SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&language=ru-RU&include_adult=false"
-public let IMAGE_URL = "http://image.tmdb.org/t/p/original"
+public let IMAGE_URL = "http://image.tmdb.org/t/p/"
 
-class SearchTableViewController: UITableViewController{
+class SearchTableViewController: UITableViewController, UITextFieldDelegate{
+
+    @IBOutlet weak var movieSearchTextField: UITextField!
 
     var searchQuery: String = ""
     var movies: [Movie] = [Movie]()
     var totalPages: Int = 0
     var currentPage: Int = 0
 
+    // TODO: - Move favorites to DB
+    var favorites: [Int] = [Int]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableviewAppearence()
+        setupRefresh()
+        hideKeyboardWhenTappedAround()
+    }
 
-        loadMovies {
+    private func setupTableviewAppearence(){
+        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
+    }
+
+    private func setupRefresh(){
+        if #available(iOS 10.0, *){
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl!)
+        }
+        refreshControl?.addTarget(self, action: #selector(self.refreshMovies(_:)), for: .valueChanged)
+    }
+
+    @objc private func refreshMovies(_ sender: Any?){
+        refreshControl?.beginRefreshing()
+        loadMovies{
             self.tableView.reloadData()
         }
-
     }
 
     func loadMovies(_ completion: @escaping () -> Void){
         var url = URLComponents(string: SEARCH_URL)
         var page: URLQueryItem = URLQueryItem(name: "page", value: "0")
 
-        // MARK: - Padding is based on current and total page comparing
+        // MARK: - Padding is based on comparing current page with total pages count
         if currentPage == 0{
             page.value = "1"
         } else if currentPage < totalPages{
@@ -43,13 +67,12 @@ class SearchTableViewController: UITableViewController{
         }
 
         // MARK: - Query construction
-        let query = URLQueryItem(name: "query", value: "RUS")
+        let query = URLQueryItem(name: "query", value: searchQuery)
         url?.queryItems?.append(query)
         url?.queryItems?.append(page)
         guard let urlString = url?.string else {
             return
         }
-
 
         // MARK: - Alamofire request for movies
         let queue = DispatchQueue(label: "tmdb.test.api", qos: .background, attributes: .concurrent)
@@ -80,9 +103,11 @@ class SearchTableViewController: UITableViewController{
                     self.currentPage = parsedMovies.currentPage
                     DispatchQueue.main.async {
                         completion()
+                        self.refreshControl?.endRefreshing()
                     }
                 } catch let jsonError {
                     print(jsonError)
+                    self.refreshControl?.endRefreshing()
                 }
         }
     }
@@ -100,18 +125,77 @@ class SearchTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieSearchCell", for: indexPath)
-        if let movieCell = cell as? MovieSearchTableViewCell{
+        if let movieCell = cell as? SearchCell{
             if movies.count >= indexPath.row{
-                movieCell.movie = movies[indexPath.row] as? Movie
+                let movie = movies[indexPath.row]
+                movieCell.movie = movie
+                movieCell.favorite = favorites.contains(movie.id)
             }
         }
 
         if indexPath.row == movies.count - 1 {
-            loadMovies{
-                self.tableView.reloadData()
-            }
+            refreshMovies(nil)
         }
         return cell
+    }
+
+    //MARK: - Adding swipe action for Favorites
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favoriteAction = self.contextualAddToFavoriteAction(forRowAtIndexPath: indexPath)
+        let swipeConfig = UISwipeActionsConfiguration(actions: [favoriteAction])
+        return swipeConfig
+    }
+
+    func contextualAddToFavoriteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let movieId = self.movies[indexPath.row].id
+        var movieIsFavorite: Bool { return self.favorites.contains(movieId) }
+        let actionTitle = movieIsFavorite ? "💔" : "❤️"
+        let action = UIContextualAction(style: .normal,
+                                        title: actionTitle) {
+            (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+            let cell = self.tableView.cellForRow(at: indexPath) as? SearchCell
+            if movieIsFavorite{
+                if let index = self.favorites.index(of: movieId) { self.favorites.remove(at: index) }
+                cell?.favorite = false
+            } else {
+                self.favorites.append(self.movies[indexPath.row].id)
+                cell?.favorite = true
+            }
+            //MARK: -  Update favorite image constraint
+            cell?.displayFavoriteImage()
+            completionHandler(true)
+        }
+        action.backgroundColor = movieIsFavorite ? UIColor.gray : UIColor.orange
+        return action
+    }
+
+    // MARK: - UITextFieldDelegate
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == movieSearchTextField, let searchText = movieSearchTextField.text{
+            if !searchText.isEmpty && searchQuery != searchText{
+                movies.removeAll()
+                self.tableView.reloadData()
+                searchQuery = searchText
+                movieSearchTextField.resignFirstResponder()
+                self.title = "Результаты для \(searchQuery)"
+                loadMovies {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        return false
+    }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     // MARK: - Navigation
@@ -120,8 +204,10 @@ class SearchTableViewController: UITableViewController{
         if segue.identifier == "ShowMovie"{
             if let indexPath = tableView.indexPathForSelectedRow{
                 if let destinationVC = segue.destination as? MovieViewController{
-                    destinationVC.movie = movies[indexPath.row]
-                    destinationVC.title = movies[indexPath.row].title
+                    let movie = movies[indexPath.row]
+                    destinationVC.movie = movie
+                    destinationVC.title = movie.title
+                    destinationVC.favorite = favorites.contains(movie.id)
                 }
             }
         }

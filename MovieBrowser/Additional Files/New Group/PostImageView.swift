@@ -36,16 +36,19 @@ class PostImageView: UIImageView {
                     return
                 }
 
-
-            DispatchQueue.main.async {
-
-                let imageToCache = UIImage(data: response.data!)
-
-                if self.imageUrlString == urlString {
-                    self.image = imageToCache
+                guard let responseData = response.data else {
+                    print("Error while fetching image from url: \(urlString)")
+                    return
                 }
 
-                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+            DispatchQueue.main.async {
+                if let imageToCache = UIImage(data: responseData){
+                    if self.imageUrlString == urlString {
+                        self.image = imageToCache
+                    }
+
+                    imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
+                }
             }
 
         }
