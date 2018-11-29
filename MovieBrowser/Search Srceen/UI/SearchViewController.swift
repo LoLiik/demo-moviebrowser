@@ -16,10 +16,12 @@ public let IMAGE_URL = "http://image.tmdb.org/t/p/"
 
 fileprivate let realm = try! Realm()
 
-class SearchTableViewController: UITableViewController, UITextFieldDelegate{
+class SearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
     @IBOutlet weak var movieSearchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
 
+    private let refreshControl = UIRefreshControl()
     var searchQuery: String = ""
     var movies: [Movie] = [Movie]()
     var totalPages: Int = 0
@@ -37,20 +39,20 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
 
     private func setupTableviewAppearence(){
         tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
+        //        tableView.separatorStyle = .none
     }
 
     private func setupRefresh(){
         if #available(iOS 10.0, *){
-            tableView.refreshControl = refreshControl
+            tableView.refreshControl = self.tableView.refreshControl
         } else {
-            tableView.addSubview(refreshControl!)
+            tableView.addSubview(refreshControl)
         }
-        refreshControl?.addTarget(self, action: #selector(self.refreshMovies(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
     }
 
     @objc private func refreshMovies(_ sender: Any?){
-        refreshControl?.beginRefreshing()
+        refreshControl.beginRefreshing()
         loadMovies{
             self.tableView.reloadData()
         }
@@ -79,8 +81,8 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
 
         // MARK: - Alamofire request for movies
         let queue = DispatchQueue(label: "tmdb.test.api", qos: .background, attributes: .concurrent)
-        Alamofire.request(urlString,
-                          method: .get)
+        var some = Alamofire.request(urlString,
+                                     method: .get)
             .validate()
             .responseJSON(queue: queue){ response in
                 guard response.result.isSuccess else {
@@ -111,49 +113,18 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
                             }
                         }
                         completion()
-                        self.refreshControl?.endRefreshing()
+                        self.refreshControl.endRefreshing()
                     }
                 } catch let jsonError {
                     print(jsonError)
-                    self.refreshControl?.endRefreshing()
+                    self.refreshControl.endRefreshing()
                 }
         }
     }
 
 
-    // MARK: - UITableViewDataSource
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieSearchCell", for: indexPath)
-        if let movieCell = cell as? SearchCell{
-            if movies.count >= indexPath.row{
-                let movie = movies[indexPath.row]
-                movieCell.movie = movie
-                movieCell.favorite = favorites.contains(movie.id)
-            }
-        }
-
-        if indexPath.row == movies.count - 1 {
-            refreshMovies(nil)
-        }
-        return cell
-    }
-
     //MARK: - Adding swipe action for Favorites
 
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let favoriteAction = self.contextualAddToFavoriteAction(forRowAtIndexPath: indexPath)
-        let swipeConfig = UISwipeActionsConfiguration(actions: [favoriteAction])
-        return swipeConfig
-    }
 
     func contextualAddToFavoriteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
         let movieId = self.movies[indexPath.row].id
@@ -161,18 +132,18 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
         let actionTitle = movieIsFavorite ? "💔" : "❤️"
         let action = UIContextualAction(style: .normal,
                                         title: actionTitle) {
-            (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
-            let cell = self.tableView.cellForRow(at: indexPath) as? SearchCell
-            if movieIsFavorite{
-                if let index = self.favorites.index(of: movieId) { self.favorites.remove(at: index) }
-                cell?.favorite = false
-            } else {
-                self.favorites.append(self.movies[indexPath.row].id)
-                cell?.favorite = true
-            }
-            //MARK: -  Update favorite image constraint
-            cell?.displayFavoriteImage()
-            completionHandler(true)
+                                            (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+                                            let cell = self.tableView.cellForRow(at: indexPath) as? SearchCell
+                                            if movieIsFavorite{
+                                                if let index = self.favorites.index(of: movieId) { self.favorites.remove(at: index) }
+                                                cell?.favorite = false
+                                            } else {
+                                                self.favorites.append(self.movies[indexPath.row].id)
+                                                cell?.favorite = true
+                                            }
+                                            //MARK: -  Update favorite image constraint
+                                            cell?.displayFavoriteImage()
+                                            completionHandler(true)
         }
         action.backgroundColor = movieIsFavorite ? UIColor.gray : UIColor.orange
         return action
@@ -181,6 +152,7 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
     // MARK: - UITextFieldDelegate
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("HeyHo")
         if textField == movieSearchTextField, let searchText = movieSearchTextField.text{
             if !searchText.isEmpty && searchQuery != searchText{
                 movies.removeAll()
@@ -223,5 +195,41 @@ class SearchTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
 
+
+
+
+// MARK: - UITableViewDataSource
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        if let movieCell = cell as? SearchCell{
+            if movies.count >= indexPath.row{
+                let movie = movies[indexPath.row]
+                movieCell.posterImageView.image = UIImage(named: "defaultPostImage")
+                movieCell.movie = movie
+                movieCell.favorite = favorites.contains(movie.id)
+            }
+        }
+
+        if indexPath.row == movies.count - 1 {
+            refreshMovies(nil)
+        }
+        return cell
+
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favoriteAction = self.contextualAddToFavoriteAction(forRowAtIndexPath: indexPath)
+        let swipeConfig = UISwipeActionsConfiguration(actions: [favoriteAction])
+        return swipeConfig
+    }
 
 }

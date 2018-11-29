@@ -53,6 +53,7 @@ class MovieViewController: UITableViewController {
     }
 
     private func updateFavoriteButton(){
+        guard favorite != nil else { return }
         if favorite!{
             addFavoriteButton.backgroundColor = .red
             addFavoriteButton.setTitle("💨Удалить из избранного💨", for: .normal)
