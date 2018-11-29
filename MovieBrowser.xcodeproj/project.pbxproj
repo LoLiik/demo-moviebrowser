@@ -22,7 +22,8 @@
 		FDAF0CE021AEAF8300612737 /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CDF21AEAF8300612737 /* PostImageView.swift */; };
 		FDAF0CE221AEAF8700612737 /* UIColor Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */; };
 		FDAF0CE421AEAF8A00612737 /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */; };
-		FDAF0CE621AEC45500612737 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE521AEC45500612737 /* MovieResponse.swift */; };
+		FDAF0CE621AEC45500612737 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE521AEC45500612737 /* SearchResponse.swift */; };
+		FDDEE82E21B077BE0066E9DB /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDEE82D21B077BE0066E9DB /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +47,8 @@
 		FDAF0CDF21AEAF8300612737 /* PostImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
 		FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor Extension.swift"; sourceTree = "<group>"; };
 		FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController Extension.swift"; sourceTree = "<group>"; };
-		FDAF0CE521AEC45500612737 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		FDAF0CE521AEC45500612737 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		FDDEE82D21B077BE0066E9DB /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +173,7 @@
 		FD4AE58821AE8FA400591067 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FDAF0CE521AEC45500612737 /* MovieResponse.swift */,
+				FDAF0CE521AEC45500612737 /* SearchResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +199,7 @@
 		FD4AE58F21AE97C200591067 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FDDEE82D21B077BE0066E9DB /* FavoriteViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -347,8 +350,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDDEE82E21B077BE0066E9DB /* FavoriteViewController.swift in Sources */,
 				FDAF0CD921AEA6E500612737 /* SearchViewController.swift in Sources */,
-				FDAF0CE621AEC45500612737 /* MovieResponse.swift in Sources */,
+				FDAF0CE621AEC45500612737 /* SearchResponse.swift in Sources */,
 				FD1E6DDA21AE861500D43E29 /* ViewController.swift in Sources */,
 				FDAF0CE021AEAF8300612737 /* PostImageView.swift in Sources */,
 				FDAF0CDB21AEAB1300612737 /* SearchCell.swift in Sources */,
