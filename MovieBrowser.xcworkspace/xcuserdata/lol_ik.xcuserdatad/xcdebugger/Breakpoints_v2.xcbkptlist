@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.61051"
+            timestampString = "565262176.963352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.6145459"
+            timestampString = "565262176.964895"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -137,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.617735"
+            timestampString = "565262176.966071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "loadImageUsingUrlString(urlString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,7 +153,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.619441"
+            timestampString = "565262176.966839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -169,7 +169,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.622861"
+            timestampString = "565262176.967984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -194,7 +194,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.6264811"
+            timestampString = "565262176.969002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
@@ -210,7 +210,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.630098"
+            timestampString = "565262176.970324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -226,7 +226,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.633031"
+            timestampString = "565262176.971332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -242,7 +242,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.63676"
+            timestampString = "565262176.972331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "191"
@@ -258,7 +258,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.639395"
+            timestampString = "565262176.9732291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -274,7 +274,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.641037"
+            timestampString = "565262176.97413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -290,7 +290,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.64275"
+            timestampString = "565262176.975029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -306,7 +306,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.644351"
+            timestampString = "565262176.975908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
@@ -322,7 +322,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.646066"
+            timestampString = "565262176.976797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -338,7 +338,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.647694"
+            timestampString = "565262176.977687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -354,7 +354,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.649509"
+            timestampString = "565262176.978573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -370,7 +370,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.65115"
+            timestampString = "565262176.979467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "203"
@@ -386,7 +386,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.65351"
+            timestampString = "565262176.980345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
@@ -402,7 +402,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.655216"
+            timestampString = "565262176.981225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -466,7 +466,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.6572551"
+            timestampString = "565262176.982206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
@@ -482,7 +482,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.658869"
+            timestampString = "565262176.983104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
@@ -498,7 +498,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.6603611"
+            timestampString = "565262176.984035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -514,7 +514,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Main/AppDelegate.swift"
-            timestampString = "565259658.662069"
+            timestampString = "565262176.985088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -546,7 +546,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Movie Screen/UI/MovieViewController.swift"
-            timestampString = "565259658.66316"
+            timestampString = "565262177.000986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -562,7 +562,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Movie Screen/UI/MovieViewController.swift"
-            timestampString = "565259658.663515"
+            timestampString = "565262177.001555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -578,7 +578,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Movie Screen/UI/MovieViewController.swift"
-            timestampString = "565259658.663604"
+            timestampString = "565262177.001696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -594,11 +594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.663685"
+            timestampString = "565262177.001817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "loadImageUsingUrlString(urlString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -610,7 +610,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.66445"
+            timestampString = "565262177.00261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -626,7 +626,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.666711"
+            timestampString = "565262177.004064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -641,200 +641,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.668373"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieBrowser.PostImageView.loadImageUsingUrlString(urlString: Swift.String) -&gt; ()"
-                  moduleName = "MovieBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lol_ik/Downloads/demo-moviebrowser-master-github/MovieBrowser/Additional%20Files/New%20Group/PostImageView.swift"
-                  timestampString = "565257716.72691"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1662">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in MovieBrowser.PostImageView.loadImageUsingUrlString(urlString: Swift.String) -&gt; ()"
-                  moduleName = "MovieBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lol_ik/Downloads/demo-moviebrowser-master-github/MovieBrowser/Additional%20Files/New%20Group/PostImageView.swift"
-                  timestampString = "565257716.7291729"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.669071"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.6697479"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.670397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.671031"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.671656"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.67228"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.6728899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.673499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.6741379"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Search Srceen/UI/SearchViewController.swift"
-            timestampString = "565259658.674768"
+            timestampString = "565262177.005021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -850,11 +658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.676432"
+            timestampString = "565262177.0058089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "loadImageUsingUrlString(urlString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -866,27 +674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.6773109"
+            timestampString = "565262177.0061769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "loadImageUsingUrlString(urlString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/Additional Files/New Group/PostImageView.swift"
-            timestampString = "565259658.678028"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "loadImageUsingUrlString(urlString:)"
             landmarkType = "7">
          </BreakpointContent>
