@@ -17,11 +17,11 @@
 		FD4AE57F21AE8E3F00591067 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4AE57E21AE8E3F00591067 /* RealmSwift.framework */; };
 		FD4AE58B21AE901000591067 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4AE58A21AE901000591067 /* Movie.swift */; };
 		FD4AE58D21AE915F00591067 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4AE58C21AE915F00591067 /* MovieViewController.swift */; };
+		FD57ED1721B140C200A31308 /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57ED1421B140C200A31308 /* UIViewController Extension.swift */; };
+		FD57ED1821B140C200A31308 /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57ED1521B140C200A31308 /* PostImageView.swift */; };
+		FD57ED1921B140C200A31308 /* UIColor Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57ED1621B140C200A31308 /* UIColor Extension.swift */; };
 		FDAF0CD921AEA6E500612737 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CD821AEA6E500612737 /* SearchViewController.swift */; };
 		FDAF0CDB21AEAB1300612737 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CDA21AEAB1300612737 /* SearchCell.swift */; };
-		FDAF0CE021AEAF8300612737 /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CDF21AEAF8300612737 /* PostImageView.swift */; };
-		FDAF0CE221AEAF8700612737 /* UIColor Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */; };
-		FDAF0CE421AEAF8A00612737 /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */; };
 		FDAF0CE621AEC45500612737 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF0CE521AEC45500612737 /* SearchResponse.swift */; };
 		FDDEE82E21B077BE0066E9DB /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDEE82D21B077BE0066E9DB /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,11 +42,11 @@
 		FD4AE57E21AE8E3F00591067 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4AE58A21AE901000591067 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FD4AE58C21AE915F00591067 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		FD57ED1421B140C200A31308 /* UIViewController Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController Extension.swift"; path = "MovieBrowser/Additional Files/UI/UIViewController Extension.swift"; sourceTree = SOURCE_ROOT; };
+		FD57ED1521B140C200A31308 /* PostImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostImageView.swift; path = "MovieBrowser/Additional Files/UI/PostImageView.swift"; sourceTree = SOURCE_ROOT; };
+		FD57ED1621B140C200A31308 /* UIColor Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor Extension.swift"; path = "MovieBrowser/Additional Files/UI/UIColor Extension.swift"; sourceTree = SOURCE_ROOT; };
 		FDAF0CD821AEA6E500612737 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FDAF0CDA21AEAB1300612737 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
-		FDAF0CDF21AEAF8300612737 /* PostImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
-		FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor Extension.swift"; sourceTree = "<group>"; };
-		FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController Extension.swift"; sourceTree = "<group>"; };
 		FDAF0CE521AEC45500612737 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		FDDEE82D21B077BE0066E9DB /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,9 +214,9 @@
 		FDAF0CDE21AEAF7A00612737 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				FDAF0CDF21AEAF8300612737 /* PostImageView.swift */,
-				FDAF0CE121AEAF8700612737 /* UIColor Extension.swift */,
-				FDAF0CE321AEAF8A00612737 /* UIViewController Extension.swift */,
+				FD57ED1521B140C200A31308 /* PostImageView.swift */,
+				FD57ED1621B140C200A31308 /* UIColor Extension.swift */,
+				FD57ED1421B140C200A31308 /* UIViewController Extension.swift */,
 			);
 			name = UI;
 			path = "New Group";
@@ -350,16 +350,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD57ED1821B140C200A31308 /* PostImageView.swift in Sources */,
 				FDDEE82E21B077BE0066E9DB /* FavoriteViewController.swift in Sources */,
 				FDAF0CD921AEA6E500612737 /* SearchViewController.swift in Sources */,
 				FDAF0CE621AEC45500612737 /* SearchResponse.swift in Sources */,
 				FD1E6DDA21AE861500D43E29 /* ViewController.swift in Sources */,
-				FDAF0CE021AEAF8300612737 /* PostImageView.swift in Sources */,
 				FDAF0CDB21AEAB1300612737 /* SearchCell.swift in Sources */,
-				FDAF0CE221AEAF8700612737 /* UIColor Extension.swift in Sources */,
 				FD1E6DD821AE861500D43E29 /* AppDelegate.swift in Sources */,
 				FD4AE58B21AE901000591067 /* Movie.swift in Sources */,
-				FDAF0CE421AEAF8A00612737 /* UIViewController Extension.swift in Sources */,
+				FD57ED1721B140C200A31308 /* UIViewController Extension.swift in Sources */,
+				FD57ED1921B140C200A31308 /* UIColor Extension.swift in Sources */,
 				FD4AE58D21AE915F00591067 /* MovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
