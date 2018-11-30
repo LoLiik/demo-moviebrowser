@@ -19,6 +19,7 @@ class Movie: Object, Codable{
     @objc dynamic var backdrop_path: String?
     @objc dynamic var overview: String
     @objc dynamic var release_date: String
+    @objc dynamic var search = ""
     @objc dynamic var favorite = false
 
     override static func primaryKey() -> String{
