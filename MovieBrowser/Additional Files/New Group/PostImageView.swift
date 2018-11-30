@@ -28,10 +28,10 @@ class PostImageView: UIImageView {
         let imageName = imageUrlString?.components(separatedBy: "/").last
         let filePath = PostImageView.documentURL.appendingPathComponent("\(String(describing: imageName!))")
 
-//        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-//            self.image = imageFromCache
-//            return
-//        }
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+            self.image = imageFromCache
+            return
+        }
 
         let queue = DispatchQueue(label: "tmdb.test.api", qos: .background, attributes: .concurrent)
         Alamofire.request(urlString,

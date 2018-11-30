@@ -21,7 +21,6 @@ class Movie: Object, Codable{
     @objc dynamic var release_date: String
     @objc dynamic var search = ""
     @objc dynamic var favorite = false
-    @objc dynamic var search: String
 
     override static func primaryKey() -> String{
         return "id"
