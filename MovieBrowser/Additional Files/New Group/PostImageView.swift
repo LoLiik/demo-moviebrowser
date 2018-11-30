@@ -24,20 +24,9 @@ class PostImageView: UIImageView {
 
         imageUrlString = urlString
 
-        let url = NSURL(string: urlString)
-
         // Check if there is saved ccopy of image
         let imageName = imageUrlString?.components(separatedBy: "/").last
         let filePath = PostImageView.documentURL.appendingPathComponent("\(String(describing: imageName!))")
-
-        if FileManager.default.fileExists(atPath: filePath.path){
-            if let contentsOfFilePath = UIImage(contentsOfFile: filePath.path){
-                DispatchQueue.main.async {
-                    self.image = contentsOfFilePath
-                }
-                return
-            }
-        }
 
 //        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
 //            self.image = imageFromCache
@@ -51,47 +40,86 @@ class PostImageView: UIImageView {
             .responseData(queue: queue){ response in
                 guard response.error == nil else {
                     print("Error while fetching image from url: \(urlString)")
+                    if FileManager.default.fileExists(atPath: filePath.path){
+                        if let contentsOfFilePath = UIImage(contentsOfFile: filePath.path){
+                            DispatchQueue.main.async {
+                                self.image = contentsOfFilePath
+                            }
+                            return
+                        }
+                    }
                     return
                 }
 
                 guard let responseData = response.data else {
                     print("Error while fetching image from url: \(urlString)")
+                    if FileManager.default.fileExists(atPath: filePath.path){
+                        if let contentsOfFilePath = UIImage(contentsOfFile: filePath.path){
+                            DispatchQueue.main.async {
+                                self.image = contentsOfFilePath
+                            }
+                            return
+                        }
+                    }
                     return
                 }
 
-            DispatchQueue.main.async {
-                if let imageToCache = UIImage(data: responseData){
-                    if self.imageUrlString == urlString {
-                        self.image = imageToCache
-                    }
-                    // Save image to cache
-//                    imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
+                DispatchQueue.main.async {
+                    if let imageToCache = UIImage(data: responseData){
+                        if self.imageUrlString == urlString {
+                            self.image = imageToCache
+                        }
+                        // Save image to cache
+                        imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
 
-                    // Write image to file
-                    // Check for existing image data
-                    do{
-                        // Look through array of files in documentDirectory
-                        let files = try FileManager.default.contentsOfDirectory(atPath: PostImageView.documentURL.path)
-                        for file in files{
-                            if "\(PostImageView.documentURL.path)/\(file)" == filePath.path {
-                                try FileManager.default.removeItem(at: filePath)
+                        // Write image to file
+                        // Check for existing image data
+                        if let loadedImageData = imageToCache.pngData(){
+                            if FileManager.default.fileExists(atPath: filePath.path){
+                                if let savedImageData = UIImage(contentsOfFile: filePath.path)?.pngData(){
+                                    // If both loaded and saved images are OK - compare their sizes and save one with bigger
+                                    if loadedImageData.count > savedImageData.count{
+                                        self.removeExistingFile(at: filePath)
+
+                                        // Create imageData and write to filePath
+                                        self.saveImage(data: loadedImageData, to: filePath)
+                                    }
+                                } else {
+                                    self.removeExistingFile(at: filePath)
+
+                                    // Create imageData and write to filePath
+                                    self.saveImage(data: loadedImageData, to: filePath)
+                                }
+                            } else {
+                                // Create imageData and write to filePath
+                                self.saveImage(data: loadedImageData, to: filePath)
                             }
                         }
-                    } catch{
-                        print("Couldn't add image from document directory \(error)")
-                    }
-
-                    // Create imageData and write to filePath
-                    do{
-                        if let pngImageData = imageToCache.pngData(){ //UIImage.pngData(imageToCache){
-                            try pngImageData.write(to: filePath, options: .atomic)
-                        }
-                    } catch{
-                        print("Couldn't write image to filePath \(filePath)")
                     }
                 }
-            }
+        }
 
+    }
+
+    private func saveImage(data: Data, to path: URL){
+        do{
+            try data.write(to: path, options: .atomic)
+        } catch{
+            print("Couldn't write image to filePath \(path)")
+        }
+    }
+
+    private func removeExistingFile(at path: URL ){
+        do{
+            // Look through array of files in documentDirectory
+            let files = try FileManager.default.contentsOfDirectory(atPath: PostImageView.documentURL.path)
+            for file in files{
+                if "\(PostImageView.documentURL.path)/\(file)" == path.path {
+                    try FileManager.default.removeItem(at: path)
+                }
+            }
+        } catch{
+            print("Couldn't add image from document directory \(error)")
         }
     }
 
