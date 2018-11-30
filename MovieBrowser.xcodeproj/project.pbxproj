@@ -108,7 +108,7 @@
 			children = (
 				FD4AE58121AE8F3C00591067 /* Main */,
 				FD1E6DD921AE861500D43E29 /* ViewController.swift */,
-				FD4AE58521AE8F8100591067 /* Search Srceen */,
+				FD4AE58521AE8F8100591067 /* Search Screen */,
 				FD4AE58221AE8F4C00591067 /* Movie Screen */,
 				FD4AE58E21AE97A400591067 /* Favorite Movies Screen */,
 				FD4AE58021AE8F2E00591067 /* Additional Files */,
@@ -145,13 +145,13 @@
 			path = "Movie Screen";
 			sourceTree = "<group>";
 		};
-		FD4AE58521AE8F8100591067 /* Search Srceen */ = {
+		FD4AE58521AE8F8100591067 /* Search Screen */ = {
 			isa = PBXGroup;
 			children = (
 				FD4AE58921AE8FAA00591067 /* UI */,
 				FD4AE58821AE8FA400591067 /* Model */,
 			);
-			path = "Search Srceen";
+			path = "Search Screen";
 			sourceTree = "<group>";
 		};
 		FD4AE58621AE8F9100591067 /* Model */ = {
