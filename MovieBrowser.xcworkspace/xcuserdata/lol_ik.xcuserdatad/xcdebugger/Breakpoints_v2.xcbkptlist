@@ -240,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
             endingLineNumber = "170"
-            landmarkName = "textFieldShouldReturn(_:)"
-            landmarkType = "7">
+            landmarkName = "SearchViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,7 +288,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
             endingLineNumber = "181"
-            landmarkName = "hideKeyboardWhenTappedAround()"
+            landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -352,7 +352,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "212"
             endingLineNumber = "212"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -416,7 +416,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
             endingLineNumber = "193"
-            landmarkName = "prepare(for:sender:)"
+            landmarkName = "hideKeyboardWhenTappedAround()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -432,7 +432,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
             endingLineNumber = "196"
-            landmarkName = "prepare(for:sender:)"
+            landmarkName = "dismissKeyboard()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -512,7 +512,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "contextualAddToFavoriteAction(forRowAtIndexPath:)"
+            landmarkName = "loadFromRealm()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

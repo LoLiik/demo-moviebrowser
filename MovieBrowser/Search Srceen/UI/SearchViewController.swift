@@ -14,7 +14,7 @@ private let API_KEY = "0850a2ca8b5adfb48d45ad7084527caf"
 fileprivate let SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&language=ru-RU&include_adult=false"
 public let IMAGE_URL = "http://image.tmdb.org/t/p/"
 
-class SearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
     @IBOutlet weak var movieSearchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -69,7 +69,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         } else if currentPage == totalPages{
             return
         }
-
+//        searchQuery = searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
         // MARK: - Query construction
         let query = URLQueryItem(name: "query", value: searchQuery.trimmingCharacters(in: .whitespacesAndNewlines))
         url?.queryItems?.append(query)
@@ -86,6 +86,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
             .responseJSON(queue: queue){ response in
                 guard response.result.isSuccess else {
                     // TODO: Get saved data From REALM
+                    self.loadFromRealm()
                     print("Malformed data received from service")
                     print("Error while fetching posts: \(String(describing: response))")
                     return
@@ -108,6 +109,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                     DispatchQueue.main.async {
                         let realm = try! Realm()
                         for movie in parsedMovies.movies{
+                            movie.search = self.searchQuery
                             try! realm.write {
                                 realm.add(movie, update: true)
                             }
@@ -119,6 +121,14 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                     print(jsonError)
                     self.refreshControl.endRefreshing()
                 }
+        }
+    }
+
+    private func loadFromRealm(){
+        DispatchQueue.main.async {
+            let realm = try! Realm()
+            self.movies = Array(realm.objects(Movie.self).filter("search = %@", self.searchQuery))
+            self.tableView.reloadData()
         }
     }
 

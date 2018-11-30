@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-1616" y="-290"/>
         </scene>
-        <!--Search Table View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="YGN-dh-KbU">
             <objects>
-                <viewController id="15c-me-raO" customClass="SearchTableViewController" customModule="MovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="15c-me-raO" customClass="SearchViewController" customModule="MovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AAU-G4-24N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
