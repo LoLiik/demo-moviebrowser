@@ -8,6 +8,10 @@
 
 import UIKit
 
+private let API_KEY = "0850a2ca8b5adfb48d45ad7084527caf"
+public let SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&language=ru-RU&include_adult=false"
+public let IMAGE_URL = "http://image.tmdb.org/t/p/"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
